@@ -96,7 +96,7 @@ namespace ADBinstaller
 
             }
         Finish:
-            MessageBox.Show("Done, it's recommended to restart your PC now.", "ADBInstaller", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Done, it's recommended to restart your PC now. Problems? Message me on TG, @K08germany.", "ADBInstaller", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
