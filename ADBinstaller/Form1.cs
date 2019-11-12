@@ -91,6 +91,7 @@ namespace ADBinstaller
 
                 if (System.Environment.GetEnvironmentVariable("path").Contains(instDir))
                 {
+                    goto skipSystemWide;
                 }
                 else if (checkSystemWide.Checked == true)
                 {
@@ -101,6 +102,7 @@ namespace ADBinstaller
                     var target = EnvironmentVariableTarget.Machine;
                     System.Environment.SetEnvironmentVariable(name, value, target);
                 }
+                skipSystemWide:
 
                 if (checkStartMenu.Checked == true)
                 {
