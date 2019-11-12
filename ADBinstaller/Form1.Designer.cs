@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.linkTaC = new System.Windows.Forms.LinkLabel();
@@ -45,7 +46,7 @@
             this.lblVersion.Font = new System.Drawing.Font("Roboto", 10F);
             this.lblVersion.Location = new System.Drawing.Point(12, 50);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(69, 18);
+            this.lblVersion.Size = new System.Drawing.Size(73, 19);
             this.lblVersion.TabIndex = 0;
             this.lblVersion.Text = "lblVersion";
             // 
@@ -55,7 +56,7 @@
             this.lblDesc.Font = new System.Drawing.Font("Roboto", 9F);
             this.lblDesc.Location = new System.Drawing.Point(12, 78);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(325, 75);
+            this.lblDesc.Size = new System.Drawing.Size(325, 80);
             this.lblDesc.TabIndex = 2;
             this.lblDesc.Text = "This tool is made to install the latest Android \r\nplatform-tools containing ADB a" +
     "nd Fastboot.\r\nThe files are downloaded from the official Android Servers. \r\n\r\nBy" +
@@ -82,7 +83,7 @@
             this.lblStatus.Font = new System.Drawing.Font("Roboto", 9F);
             this.lblStatus.Location = new System.Drawing.Point(9, 289);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(67, 15);
+            this.lblStatus.Size = new System.Drawing.Size(68, 16);
             this.lblStatus.TabIndex = 7;
             this.lblStatus.Text = "Status: Idle";
             // 
@@ -125,7 +126,7 @@
             this.label1.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(7, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 26);
+            this.label1.Size = new System.Drawing.Size(126, 28);
             this.label1.TabIndex = 12;
             this.label1.Text = "AdbInstaller";
             // 
@@ -153,11 +154,12 @@
             this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.lblVersion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "cADBi";
+            this.Text = "AdbInstaller";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

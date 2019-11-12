@@ -129,13 +129,5 @@ namespace ADBinstaller
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            if (System.Environment.GetEnvironmentVariable("path").Contains(@"C:\Program Files (x86)\platform-tools"))
-            {
-                MessageBox.Show("contains" + @"C:\Program Files (x86)\platform-tools");
-            }
-            else { MessageBox.Show("gay"); }
-        }
     }
 }
