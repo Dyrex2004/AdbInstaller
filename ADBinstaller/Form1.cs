@@ -126,6 +126,7 @@ namespace ADBinstaller
 
 
         Finish_Done:;
+            lblStatus.Text = "Status: Idle";
 
 
 
