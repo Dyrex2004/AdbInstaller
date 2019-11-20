@@ -17,6 +17,8 @@ using System.IO.Compression;
 
 namespace ADBinstaller
 {
+    
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -38,10 +40,16 @@ namespace ADBinstaller
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            var version = "V4";
+            lblProgVers.Text = version;
+
+
             var installed = @"C:\Program Files (x86)\platform-tools\adb.exe";
             if (File.Exists(installed))
             {
-                lblVersion.Text = "Installed: Yes (" + File.GetLastWriteTime(installed) + ")";
+                var install_date = File.GetLastWriteTime(installed).Day + "-" + File.GetLastWriteTime(installed).Month + "-" + File.GetLastWriteTime(installed).Year;
+                lblVersion.Text = "Installed: Yes (" + install_date + ")";
             }
             else
             {
@@ -57,7 +65,7 @@ namespace ADBinstaller
                 var cDir = @"C:\Program Files (x86)";
                 var zipName = "platform-tools.zip";
                 lblStatus.Text = "Status: Downloading";
-
+                progressBar1.Value = 20;
                 try
                 {
                     webCl.DownloadFile("https://dl.google.com/android/repository/platform-tools-latest-windows.zip", zipName);
@@ -67,18 +75,40 @@ namespace ADBinstaller
                     MessageBox.Show("Error: " + System.Environment.NewLine + System.Environment.NewLine + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     lblStatus.Text = "Status: Idle";
                     goto Finish_error;
+
                 }
 
                 if (System.IO.File.Exists(zipName))
                 {
                     lblStatus.Text = "Status: Extracting...";
+                    progressBar1.Value = 40;
+
                     System.IO.DirectoryInfo di = new DirectoryInfo(instDir);
+
+                    delFiles:
 
                     if (File.Exists(instDir + @"\adb.exe"))
                     {
                         foreach (FileInfo file in di.GetFiles())
                         {
-                            file.Delete();
+                            try
+                            {
+                                file.Delete();
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MessageBox.Show("Error: ADB server running! Your Server will be stopped now.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                                startInfo.FileName = "cmd.exe";
+                                startInfo.WorkingDirectory = @"C:\Program Files (x86)\platform-tools";
+                                startInfo.Arguments = "/C adb kill-server";
+                                process.StartInfo = startInfo;
+                                process.Start();
+                                MessageBox.Show("ADB server stopped!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                goto delFiles;
+                            }
+
                         }
                         foreach (DirectoryInfo dir in di.GetDirectories())
                         {
@@ -96,6 +126,7 @@ namespace ADBinstaller
                 else if (checkSystemWide.Checked == true)
                 {
                     lblStatus.Text = "Status: Adding EnvVars...";
+                    progressBar1.Value = 60;
                     const string name = "PATH";
                     string pathvar = System.Environment.GetEnvironmentVariable(name);
                     var value = pathvar + @";C:\Program Files (x86)\platform-tools";
@@ -108,6 +139,7 @@ namespace ADBinstaller
                 {
                     string path = instDir + @"\open.exe";
                     lblStatus.Text = "Status: Add to Start";
+                    progressBar1.Value = 80;
                     webCl.DownloadFile("https://github.com/K08official/AdbInstaller/raw/master/Files/open.exe", path);
 
                     string commonStartMenuPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu);
@@ -117,20 +149,29 @@ namespace ADBinstaller
 
                 }
             Finish:
+                progressBar1.Value = 100;
                 MessageBox.Show("Done, it's recommended to restart your PC now. Problems? Message me on TG, @K08germany.", "ADBInstaller", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 goto Finish_Done;
+
             Finish_error:
                 MessageBox.Show("Installation failed!", "ADBInstaller", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                progressBar1.Value = 0;
 
             }
 
 
         Finish_Done:;
             lblStatus.Text = "Status: Idle";
+            progressBar1.Value = 0;
 
 
 
         }
 
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/K08official/AdbInstaller-Releases/releases");
+
+        }
     }
 }
