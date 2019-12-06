@@ -41,7 +41,7 @@ namespace ADBinstaller
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            var version = "V4";
+            var version = "V5";
             lblProgVers.Text = version;
 
 
@@ -57,13 +57,35 @@ namespace ADBinstaller
             }
         }
 
-        private void BtnDownload_Click_1(object sender, EventArgs e)
+        private void BtnDownload_Click_1(object sender, EventArgs e) //Main events
         {
             {
                 var webCl = new WebClient();
                 var instDir = @"C:\Program Files (x86)\platform-tools";
                 var cDir = @"C:\Program Files (x86)";
                 var zipName = "platform-tools.zip";
+                var dirM = @"C:\Program Files (x86)\Minimal ADB and Fastboot";
+
+                rem_minimal:
+                if (System.Environment.GetEnvironmentVariable("path").Contains(dirM))
+                {
+                    const string name = "PATH";
+                    string pathvar = System.Environment.GetEnvironmentVariable(name);
+                    //pathvar.Remove(@";C:\Program Files (x86)\platform-tools");                NOT WORKING YET
+
+                }
+
+
+                if (File.Exists(@"C:\Program Files (x86)\Minimal ADB and Fastboot\adb.exe"))
+                   {
+                    lblStatus.Text = "Status: removing Minimal ADB";
+                    progressBar1.Value = 10;
+                    Directory.Delete(dirM,true);
+
+
+                }
+
+
                 lblStatus.Text = "Status: Downloading";
                 progressBar1.Value = 20;
                 try
@@ -148,6 +170,8 @@ namespace ADBinstaller
 
 
                 }
+
+
             Finish:
                 progressBar1.Value = 100;
                 MessageBox.Show("Done, it's recommended to restart your PC now. Problems? Message me on TG, @K08germany.", "ADBInstaller", MessageBoxButtons.OK, MessageBoxIcon.Information);
