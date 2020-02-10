@@ -24,3 +24,14 @@ C:\Users\fynn-\Source\Repos\AdbInstaller_github\ADBinstaller\obj\Release\ADBinst
 C:\Users\fynn-\Source\Repos\AdbInstaller_github\ADBinstaller\obj\Release\ADBinstaller.csproj.CoreCompileInputs.cache
 C:\Users\fynn-\Source\Repos\AdbInstaller_github\ADBinstaller\obj\Release\ADBinstaller.exe
 C:\Users\fynn-\Source\Repos\AdbInstaller_github\ADBinstaller\obj\Release\ADBinstaller.pdb
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\bin\Release\ADBinstaller.exe.config
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\bin\Release\ADBinstaller.exe
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\bin\Release\ADBinstaller.pdb
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\ADBinstaller.csprojAssemblyReference.cache
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\Interop.IWshRuntimeLibrary.dll
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\ADBinstaller.csproj.ResolveComReference.cache
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\ADBinstaller.Form1.resources
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\ADBinstaller.Properties.Resources.resources
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\ADBinstaller.csproj.GenerateResource.cache
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\ADBinstaller.exe
+C:\Users\Fynn\source\repos\AdbInstaller\ADBinstaller\obj\Release\ADBinstaller.pdb

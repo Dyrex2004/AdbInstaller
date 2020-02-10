@@ -41,6 +41,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblProgVers = new System.Windows.Forms.Label();
+            this.btnPackage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblVersion
@@ -83,10 +84,10 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblStatus.Location = new System.Drawing.Point(5, 277);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(68, 16);
+            this.lblStatus.Size = new System.Drawing.Size(67, 15);
             this.lblStatus.TabIndex = 7;
             this.lblStatus.Text = "Status: Idle";
             // 
@@ -94,9 +95,9 @@
             // 
             this.btnDownload.Location = new System.Drawing.Point(9, 207);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(320, 41);
+            this.btnDownload.Size = new System.Drawing.Size(185, 41);
             this.btnDownload.TabIndex = 8;
-            this.btnDownload.Text = "Download";
+            this.btnDownload.Text = "Download and Install";
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click_1);
             // 
@@ -140,13 +141,13 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(128, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "by Dyrex";
+            this.label2.Text = "by @Dyrex2004";
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(9, 253);
+            this.progressBar1.Location = new System.Drawing.Point(9, 254);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(320, 19);
             this.progressBar1.TabIndex = 14;
@@ -171,11 +172,22 @@
             this.lblProgVers.TabIndex = 16;
             this.lblProgVers.Text = "v12";
             // 
+            // btnPackage
+            // 
+            this.btnPackage.Location = new System.Drawing.Point(200, 207);
+            this.btnPackage.Name = "btnPackage";
+            this.btnPackage.Size = new System.Drawing.Size(129, 41);
+            this.btnPackage.TabIndex = 17;
+            this.btnPackage.Text = "Download Package";
+            this.btnPackage.UseVisualStyleBackColor = true;
+            this.btnPackage.Click += new System.EventHandler(this.btnPackage_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 298);
+            this.Controls.Add(this.btnPackage);
             this.Controls.Add(this.lblProgVers);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
@@ -215,6 +227,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label lblProgVers;
+        private System.Windows.Forms.Button btnPackage;
     }
 }
 
